@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./style.css">
+
+    <title>Gallery</title>
+</head>
+
+<body>
+    
+    <div class="container-gallery">
+        
+        <h1 class="header">enjoy the best image</h3>
+        <p class="describe-ability">you can free download</p>
+
+
+        <div class="filter-box">
+
+            <div class="all"        onclick="allImage()">        All</div>
+            <div class="nature"     onclick="nature()">     Nature</div>
+            <div class="mountain"   onclick="mountain()">   Mountain</div>
+            <div class="sky"        onclick="sky()">        Sky</div>
+            <div class="car"        onclick="car()">        Car</div>
+
+        </div>
+
+
+        <div class="container-image">
+
+              <!-- The Close Button -->
+              <span class="close">&times;</span>
+
+
+            <div class="image-box">
+
+                <div id="nature" class="img">
+                    <img src="./img/micheile-dot-com-i1dgopMg1X4-unsplash.jpg" onclick="singleShow(this.src)" alt="">
+                    <div class="info">nature</div>
+                </div>
+
+                <div id="car" class="img">
+                    <img src="./img/pexels-christian-1164778.jpg" onclick="singleShow(this.src)" alt="">
+                    <div class="info">Car</div>
+                </div>
+
+                <div id="mountain" class="img">
+                    <img src="./img/pexels-dids-1740103.jpg" onclick="singleShow(this.src)" alt="">
+                    <div class="info">mountain</div>
+                </div>
+
+                <div id="nature" class="img">
+                    <img src="./img/pexels-eberhard-grossgasteiger-443446.jpg" onclick="singleShow(this.src)" alt="">
+                    <div class="info">nature</div>
+                </div>
+
+                <div id="nature" class="img">
+                    <img src="./img/pexels-jéshoots-7396.jpg" onclick="singleShow(this.src)" alt="">
+                    <div class="info">nature</div>
+                </div>
+
+                <div id="car" class="img">
+                    <img src="./img/pexels-mike-b-112460.jpg" onclick="singleShow(this.src)" alt="">
+                    <div class="info">Car</div>
+                </div>
+
+                <div id="car" class="img">
+                    <img src="./img/pexels-sarmad-mughal-305070.jpg" onclick="singleShow(this.src)" alt="">
+                    <div class="info">Car</div>
+                </div>
+
+                <div id="car" class="img">
+                    <img src="./img/pexels-yurii-hlei-1545743.jpg" onclick="singleShow(this.src)" alt="">
+                    <div class="info">Car</div>
+                </div>
+
+                <div id="mountain" class="img">
+                    <img src="./img/pexels-travis-saylor-1202047.jpg"  onclick="singleShow(this.src)" alt="">
+                    <div class="info">mountain</div>
+                </div>
+
+            </div>
+
+
+            <div class="singleImage">
+                
+                <img class="image" src="" alt="">
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</body>
+
+
+
+<script>
+
+        function allImage() {
+
+            let allImage = document.querySelectorAll(".image-box > div");
+                
+            for (let i=0; i < allImage.length; i++) {
+                    
+                allImage[i].style.display = 'block';
+
+            }
+        }
+
+
+        function nature() {
+            
+            let all = document.querySelectorAll(".image-box > div");
+
+            for (let i=0; i < all.length; i++) {
+                
+                all[i].style.display = 'none';
+
+            }
+
+            let natures = document.querySelectorAll("#nature");
+
+            for (let i=0; i < natures.length; i++) {
+                
+                natures[i].style.display = 'block';
+
+            }
+        }
+
+
+        function mountain() {
+            
+            let all = document.querySelectorAll(".image-box > div");
+
+            for (let i=0; i < all.length; i++) {
+                
+                all[i].style.display = 'none';
+
+            }
+
+            let mountains = document.querySelectorAll("#mountain");
+
+            for (let i=0; i < mountains.length; i++) {
+                
+                mountains[i].style.display = 'block';
+
+            }
+        }
+
+
+
+        function sky() {
+            
+            let all = document.querySelectorAll(".image-box > div");
+
+            for (let i=0; i < all.length; i++) {
+                
+                all[i].style.display = 'none';
+
+            }
+
+            let skys = document.querySelectorAll("#sky");
+
+            for (let i=0; i < skys.length; i++) {
+                
+                skys[i].style.display = 'block';
+
+            }
+        }
+
+
+
+        function car() {
+
+            let all = document.querySelectorAll(".image-box > div");
+
+            for (let i=0; i < all.length; i++) {
+                
+                all[i].style.display = 'none';
+
+            }
+
+            let cars = document.querySelectorAll("#car");
+
+            for (let i=0; i < cars.length; i++) {
+                
+                cars[i].style.display = 'block';
+
+            }
+
+        }
+
+
+        function singleShow(imgSrc) {
+
+            document.querySelector(".singleImage").style.display = "block";
+
+            document.querySelector(".close").style.display = "block";
+
+            document.querySelector(".image").src = imgSrc;
+
+            document.querySelector(".image-box").style.opacity = "0.7";
+
+        }
+
+</script>
+
+
+<script>
+
+    // Get the <span> element that closes the modal
+    var span = document.querySelector(".close");
+
+    let singleImage = document.querySelector(".singleImage");
+
+    // When the user clicks on <span> (x), close the modal
+
+    span.onclick = function() { 
+
+        singleImage.style.display = "none";
+        span.style.display = "none";
+
+        document.querySelector(".image-box").style.filter = "blur(0px)";
+        document.querySelector(".image-box").style.opacity = "1";
+    }
+
+</script>
+
+
+</html>
